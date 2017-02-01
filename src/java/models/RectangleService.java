@@ -9,11 +9,11 @@ package models;
  *
  * @author chris
  */
-public class CalculatorService {
+public class RectangleService implements AreaCalculator {
     private double width;
     private double height;
     
-    public CalculatorService(String width, String height){
+    public RectangleService(String width, String height){
             setWidth(width);
             setHeight(height);
     }
@@ -52,6 +52,7 @@ public class CalculatorService {
         }
     }
     
+    @Override
     public final double calculateArea(){
         return height*width;
     }

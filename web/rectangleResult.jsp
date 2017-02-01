@@ -17,6 +17,7 @@
         <div class="row">
             <div class="col-xs-4 col-xs-offset-4">
                 <h3>The area of your rectangle is : ${area}</h3    
+                <a href="calculatorInput.html">Back</a>
             </div>
         </div>
     </body> 

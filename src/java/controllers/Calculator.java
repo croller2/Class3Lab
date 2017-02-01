@@ -6,23 +6,21 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.CalculatorService;
+import models.RectangleService;
 
 /**
  *
  * @author chris
  */
-@WebServlet(name = "RectangleController", urlPatterns = {"/RectangleController"})
-public class RectangleController extends HttpServlet {
-    private static final String RESULT_PAGE = "rectangleResult.jsp";
+@WebServlet(name = "calc", urlPatterns = {"/calc"})
+public class Calculator extends HttpServlet {
+    private static final String RESULT_PAGE = "/rectangleResult.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,21 +32,27 @@ public class RectangleController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        try{
+            response.setContentType("text/html;charset=UTF-8");
 
-        //Get my height & width from the view
-        String height = request.getParameter("rectangleHeight").trim();
-        String width = request.getParameter("rectangleWidth").trim();
-        
-        //Feed my values into my calculator service
-        CalculatorService calc = new CalculatorService(width, height);
-        double area = calc.calculateArea();
-        request.setAttribute("area", area);
-        
-        RequestDispatcher view =
-                request.getRequestDispatcher(RESULT_PAGE);
-        view.forward(request, response);
+            //Get my height & width from the view
+            String height = request.getParameter("rectangleHeight").trim();
+            String width = request.getParameter("rectangleWidth").trim();
+
+            //Feed my values into my calculator service
+            RectangleService calc = new RectangleService(width, height);
+            double area = calc.calculateArea();
+            
+            request.setAttribute("area", area);
+
+            RequestDispatcher view =
+                    request.getRequestDispatcher(RESULT_PAGE);
+            view.forward(request, response);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
         }
+
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
