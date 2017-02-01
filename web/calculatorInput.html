@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Class 3</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 style="text-align: center">Calculate the area of a rectangle</h1>
+        <div class="row">
+            <div class="container">
+                <div class ="col-xs-4 col-xs-offset-4">
+                    <!-- Don't have permissions to load this image, need to use a servlet to access it -->
+                    <img src="C:\Users\chris\Desktop\School\Spring 2017\Distributed Java\Class3Lab\web\rectangle.gif" alt="rectangle">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <form id="rectForm" name="rectForm" method="POST" action="RectangleController">
+                        <div class="form-group">
+                            <label for="rectangleHeight">Height</label>
+                            <input type="text" class="form-control" id="rectangleHeight" placeholder="15.0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rectangleWidth">Width</label>
+                            <input type="text" class="form-control" id="rectangleWidth" placeholder="12.0" required>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+            </div>
+        </div>
+    </body> 
+</html>
