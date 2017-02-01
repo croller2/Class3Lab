@@ -43,7 +43,7 @@ public class RectangleController extends HttpServlet {
         //Feed my values into my calculator service
         CalculatorService calc = new CalculatorService(width, height);
         double area = calc.calculateArea();
-        request.setAttribute("recommendations", area);
+        request.setAttribute("area", area);
         
         RequestDispatcher view =
                 request.getRequestDispatcher(RESULT_PAGE);
